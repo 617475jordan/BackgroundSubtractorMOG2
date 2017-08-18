@@ -18,6 +18,10 @@ int main(int argc, char** argv)
 	while (1)
 	{
 		capture >> frame;
+		if(frame.empty())
+		{
+			return -1;
+		}
 		flip(frame, frame, -1);
 		// 运动前景检测，并更新背景  
 		mog(frame, foreground, 0.001);
